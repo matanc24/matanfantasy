@@ -1,0 +1,352 @@
+.header {
+  display: grid;
+  grid-template-columns: 13rem 1fr 13rem;
+  justify-content: space-between;
+
+  h1 {
+    align-self: center;
+
+    color: var(--color-primary-light);
+    grid-column: 2;
+    font-weight: 700;
+    font-size: 8rem;
+  }
+  a {
+    margin: 2rem;
+    align-self: center;
+    justify-self: center;
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .hr {
+    grid-column: 1 / span 3;
+    background-color: var(--color-grey-dark-3);
+    height: 0.1rem;
+    width: 100%;
+  }
+  .pictures {
+    grid-row: 2;
+    grid-column: 2;
+    img {
+      height: 22.68rem;
+    }
+  }
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.section {
+  padding: 5rem 0;
+}
+.section-center {
+  width: 100vw;
+  margin: 0 auto;
+}
+
+.loading {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: 1rem solid #ccc;
+  border-top-color: var(--color-primary-dark);
+  animation: spinner 0.6s linear infinite;
+  grid-column: 3;
+  grid-row: 8;
+}
+.content {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 13rem repeat(2, 1fr) 13rem;
+  margin-top: 4rem;
+  .stat-container {
+    gap: 1rem;
+    column-gap: 3rem;
+    border: 1px solid #000;
+    border-radius: 2rem;
+    justify-self: center;
+    justify-items: center;
+    background-color: white;
+    padding: 1rem;
+    width: 90%;
+    .title {
+      grid-row: 1;
+      font-size: 2rem;
+      color: var(--color-primary-dark);
+      justify-self: flex-start;
+    }
+
+    .underline {
+      height: 0.2rem;
+      width: 100%;
+      background-color: black;
+      grid-row: 2;
+      grid-column: 1 / span 6;
+    }
+    .icon {
+      color: red;
+      transform: translateY(15%);
+    }
+  }
+
+  //////////////////
+  // Leaders
+  //////////////////
+  .heading-pts-leaders {
+    grid-column: 3;
+    justify-self: center;
+  }
+  .pts-leaders {
+    width: 95%;
+    display: grid;
+    justify-self: center;
+    grid-column: 3;
+    grid-template-columns: 25rem repeat(3, 1fr);
+    grid-template-rows: min-content min-content repeat(7, 1fr min-content);
+    gap: 0.5rem;
+    .title {
+      font-size: 2rem;
+      margin-right: 1rem;
+      color: var(--color-primary-dark);
+      justify-self: flex-start;
+    }
+
+    .details {
+      grid-column: 1;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      grid-template-rows: repeat(2, 1fr);
+
+      column-gap: 0.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      align-self: center;
+      justify-self: flex-start;
+      color: var(--color-primary-dark);
+      &__shirt {
+        grid-row: 1 / span 2;
+        height: 5rem;
+        justify-self: center;
+        align-self: center;
+      }
+      &__name {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-right: 0.5rem;
+        cursor: pointer;
+      }
+      &__info-box {
+        grid-row: 2;
+        grid-column: 2;
+        display: flex;
+      }
+      &__crest {
+        height: 2.5rem;
+        justify-self: flex-start;
+        align-self: center;
+        margin-left: 0.5rem;
+      }
+      &__position {
+        font-size: 1.9rem;
+        font-weight: 400;
+        align-self: center;
+      }
+      &__stat {
+        font-size: 2rem;
+        font-weight: 700;
+        align-self: center;
+        justify-self: center;
+        color: var(--color-primary-dark);
+      }
+      &__underline-small {
+        height: 0.1rem;
+        width: 100%;
+        background-color: var(--color-grey-dark-3);
+        grid-column: 1 / span 5;
+      }
+    }
+  }
+
+  //////////////////
+  // League Table
+  //////////////////
+  .heading-pts-table {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+  }
+  .league-table {
+    width: 95%;
+    display: grid;
+    justify-self: center;
+    grid-column: 2;
+    grid-row: 2;
+    grid-template-columns: 22rem repeat(5, 1fr);
+    grid-template-rows: min-content min-content repeat(14, 1fr min-content);
+    gap: 0.5rem;
+    .title {
+      font-size: 2rem;
+      color: var(--color-primary-dark);
+      justify-self: flex-start;
+      margin-right: 1rem;
+    }
+
+    .details {
+      grid-column: 1;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      column-gap: 0.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      align-self: center;
+      justify-self: flex-start;
+      color: var(--color-primary-dark);
+
+      &__name {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-right: 0.5rem;
+        align-self: center;
+      }
+
+      &__crest {
+        height: 3rem;
+        justify-self: flex-start;
+        align-self: center;
+        margin-left: 0.5rem;
+      }
+      &__position {
+        font-size: 1.9rem;
+        font-weight: 400;
+        align-self: center;
+      }
+      &__stat {
+        font-size: 2rem;
+        font-weight: 700;
+        align-self: center;
+        justify-self: center;
+        color: var(--color-primary-dark);
+      }
+      &__underline-small {
+        height: 0.1rem;
+        width: 100%;
+        background-color: var(--color-grey-dark-3);
+        grid-column: 1 / span 6;
+      }
+    }
+  }
+  //////////////////
+  // Fixtures
+  //////////////////
+  .fix-heading {
+    margin-top: 2rem;
+    grid-column: 2 / span 2;
+    justify-self: center;
+  }
+  .fix-container {
+    grid-column: 2 / span 2;
+    display: grid;
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+    grid-template-columns: min-content 15rem repeat(7, 1fr);
+    grid-template-rows: repeat(16, min-content) 1fr;
+
+    .fix-desc {
+      grid-row: 1;
+      grid-column: 1 / span 2;
+    }
+    .team {
+      grid-column: 2;
+      border-bottom: 1px solid var(--color-grey-light-4);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--color-primary-dark);
+      align-self: flex-end;
+    }
+    .gw {
+      grid-row: 1;
+      font-size: 2.5rem;
+      justify-self: center;
+      align-self: center;
+    }
+    .logo {
+      display: flex;
+      grid-column: 1;
+      align-self: flex-end;
+
+      img {
+        height: 4rem;
+      }
+    }
+    .dif-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-column: 1 / span 2;
+      & > span {
+        font-size: 1.5rem;
+        margin: 0.5rem;
+        color: var(--color-primary-dark);
+      }
+
+      .dif {
+        width: 2.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+          color: var(--color-grey-light-1);
+          font-size: 2rem;
+        }
+      }
+      .one {
+        background-color: var(--color-dif-1);
+        span {
+          color: black;
+        }
+      }
+      .two {
+        background-color: var(--color-dif-2);
+      }
+      .three {
+        background-color: var(--color-dif-3);
+        span {
+          color: black;
+        }
+      }
+      .four {
+        background-color: var(--color-dif-4);
+      }
+      .five {
+        background-color: var(--color-dif-5);
+      }
+    }
+    .fixDifficulty {
+      height: 100%;
+      width: 100%;
+      justify-self: center;
+      align-self: center;
+      border-radius: 0.5rem;
+
+      .opp-img {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0.5rem;
+        margin-top: 0.6rem;
+        font-size: 1.7rem;
+
+        img {
+          opacity: 90%;
+          height: 3.5rem;
+          width: 3.5rem;
+        }
+      }
+    }
+  }
+}
