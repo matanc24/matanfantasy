@@ -11,12 +11,24 @@ const LeagueTable = () => {
     fetchPlayers,
     isLoading,
   } = useContext(PlayersContext);
-  if (isLoading) {
-    return <Loading />;
+  console.log(rankings);
+  if (isLoading && rankings.length === 0) {
+    return (
+      <>
+        <h2 className='heading teams' id='table'>
+          טבלת ליגת העל
+        </h2>
+        <div className='stat-container league-table'>
+          <Loading />;
+        </div>
+      </>
+    );
   }
   return (
     <>
-      <h1 className='heading-pts-table'>טבלת ליגת העל</h1>
+      <h2 className='heading teams' id='table'>
+        טבלת ליגת העל
+      </h2>
       <div className='stat-container league-table'>
         <div className='underline'></div>
         <div className='title'>קבוצה</div>

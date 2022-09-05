@@ -64,7 +64,7 @@ const sNesTziyona = getTeamSchedule('סקציה נס ציונה');
 const Fixtures = () => {
   return (
     <>
-      <h1 className='fix-heading'>קושי משחקים</h1>
+      <h2 className='fix-heading'>קושי משחקים</h2>
       <div className='fix-container'>
         {teams.map((team) => {
           return (

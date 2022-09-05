@@ -15,6 +15,7 @@ const PlayersProvider = ({ children }) => {
   const [error, setError] = useState({ show: false, msg: '' });
 
   const fetchPlayers = async (type, id = '') => {
+    setPlayerStat('');
     setIsLoading(true);
     const res = await fetch(`${API_ENDPOINT}${type}${id}`);
     if (!res.ok) {
@@ -39,8 +40,7 @@ const PlayersProvider = ({ children }) => {
     }
     if (type === 'getplayerstat&id=') {
       setIsLoading(false);
-      setPlayerStat(data.otherTeam);
-      return data.otherTeam;
+      setPlayerStat({ id, ...data });
     }
 
     // )

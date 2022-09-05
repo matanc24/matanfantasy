@@ -16,15 +16,19 @@ const Leaders = () => {
     setIsLoading,
   } = useContext(PlayersContext);
 
-  useEffect(() => {
-    console.log(playerStat);
-  }, [playerStat]);
-  if (isLoading) {
-    return <Loading />;
+  if (isLoading && leaders.length === 0) {
+    return (
+      <>
+        <h2 className='heading players'>שחקנים מובילים</h2>
+        <div className='stat-container pts-leaders'>
+          <Loading />;
+        </div>
+      </>
+    );
   }
   return (
     <>
-      <h1 className='heading-pts-leaders'>שחקנים מובילים</h1>
+      <h2 className='heading players'>שחקנים מובילים</h2>
       <div className='stat-container pts-leaders'>
         <div className='underline'></div>
         <div className='title'>שחקן</div>
@@ -41,12 +45,14 @@ const Leaders = () => {
                   title={player.teamName}
                   className='details__shirt'
                 />
-                <div
-                  className='details__name'
-                  onClick={() => fetchPlayers('getplayerstat&id=', player.id)}
-                >
-                  {player.name} <HiInformationCircle />
-                </div>
+                <div className='details__name'>{player.name}</div>
+                <a href='#card'>
+                  <HiInformationCircle
+                    onClick={() => {
+                      fetchPlayers('getplayerstat&id=', player.id);
+                    }}
+                  />
+                </a>
                 <div className='details__info-box'>
                   <img
                     src={player.teamFlagPic}
