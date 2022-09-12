@@ -22,7 +22,7 @@ export default [
     teamStrength: 5,
 
     teamImg: 'https://i.ibb.co/Rcv5J8Y/41.png',
-    colors: ['#20458d', '#eed31c'],
+    colors: ['#20458d', '#fdee01'],
   },
   {
     teamName: 'מכבי נתניה',
@@ -30,7 +30,7 @@ export default [
     val: 39,
     teamStrength: 3,
     teamImg: 'https://i.ibb.co/9Zp9mDj/39.png',
-    colors: ['#eed31c', 'black'],
+    colors: ['#dfc91b', 'black'],
   },
   {
     teamName: 'הפועל תל אביב',
@@ -38,7 +38,7 @@ export default [
     val: 25,
     teamStrength: 2,
     teamImg: 'https://i.ibb.co/7RjjQ9Y/25.png',
-    colors: ['#cd010b', 'white'],
+    colors: ['#da2333', 'white'],
   },
   {
     teamName: 'בני סכנין',
@@ -46,7 +46,7 @@ export default [
     val: 26,
     teamStrength: 3,
     teamImg: 'https://i.ibb.co/9HwGzyF/26.png',
-    colors: ['#cd010b', 'white'],
+    colors: ['#da2333', 'white'],
   },
   {
     teamName: 'הפועל קרית שמונה',
@@ -62,7 +62,7 @@ export default [
     val: 1349,
     teamStrength: 3,
     teamImg: 'https://i.ibb.co/D9wsy6p/1349.png',
-    colors: ['#cd010b', 'white'],
+    colors: ['#da2333', 'white'],
   },
   {
     teamName: 'מ.ס. אשדוד',
@@ -70,7 +70,7 @@ export default [
     val: 46,
     teamStrength: 3,
     teamImg: 'https://i.ibb.co/B23JcFJ/46.png',
-    colors: ['#cd010b', '#fdee01'],
+    colors: ['#da2333', '#fdee01'],
   },
   {
     teamName: 'בית``ר ירושלים',
@@ -78,7 +78,7 @@ export default [
     val: 40,
     teamStrength: 2,
     teamImg: 'https://i.ibb.co/n066Z7Q/40.png',
-    colors: ['#eed31c', 'black'],
+    colors: ['#dfc91b', 'black'],
   },
   {
     teamName: 'הפועל חיפה',
@@ -86,7 +86,7 @@ export default [
     val: 38,
     teamStrength: 3,
     teamImg: 'https://i.ibb.co/8DQg7T8/38.png',
-    colors: ['#cd010b', 'black'],
+    colors: ['#da2333', 'black'],
   },
   {
     teamName: 'הפועל ירושלים',
@@ -94,7 +94,7 @@ export default [
     val: 1271,
     teamStrength: 2,
     teamImg: 'https://i.ibb.co/KFdXdCs/1271.png',
-    colors: ['#cd010b', 'black'],
+    colors: ['#da2333', 'black'],
   },
   {
     teamName: 'מכבי בני ריינה',

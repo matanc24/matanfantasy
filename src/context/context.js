@@ -7,22 +7,21 @@ const PlayersProvider = ({ children }) => {
   const [players, setPlayers] = useState([]);
   const [rankings, setRankings] = useState([]);
   const [leaders, setLeaders] = useState([]);
-  const [playerStat, setPlayerStat] = useState([]);
-  const [current, setCurrent] = useState(null);
+  const [playerStat, setPlayerStat] = useState({});
+  const [currentGw, setCurrentGw] = useState(null);
+  const [playerGw, setPlayerGw] = useState([]);
   // Loading
   const [isLoading, setIsLoading] = useState(false);
-  // error
+  // Error
   const [error, setError] = useState({ show: false, msg: '' });
 
   const fetchPlayers = async (type, id = '') => {
-    setPlayerStat('');
     setIsLoading(true);
     const res = await fetch(`${API_ENDPOINT}${type}${id}`);
     if (!res.ok) {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     const data = await res.json();
-    // const data = JSON.parse(dataObj);
 
     if (type === 'players') {
       const topPlayers = JSON.parse(data)
@@ -34,19 +33,30 @@ const PlayersProvider = ({ children }) => {
       setPlayers(JSON.parse(data));
       setLeaders(topPlayers);
     }
+    if (type === 'games') {
+      setCurrentGw(data.cycleNum);
+    }
     if (type === 'rankingtable') {
-      console.log(data);
+      setIsLoading(false);
       setRankings(data.ranks);
     }
     if (type === 'getplayerstat&id=') {
+      console.log('check');
       setIsLoading(false);
       setPlayerStat({ id, ...data });
     }
-
-    // )
+    if (type.length > 20) {
+      setPlayerGw(data);
+    }
+  };
+  const handleChange = (e) => {
+    const value = e.target.value;
+    console.log(value, playerStat.id);
+    fetchPlayers(`getplayerstat&id=${playerStat.id}&roundNum=`, value);
   };
   useEffect(() => {
     fetchPlayers('players');
+    fetchPlayers('games');
     fetchPlayers('rankingtable');
   }, []);
 
@@ -58,9 +68,12 @@ const PlayersProvider = ({ children }) => {
         rankings,
         teams,
         playerStat,
+        setPlayerStat,
         fetchPlayers,
-        current,
-        setCurrent,
+        handleChange,
+        currentGw,
+        setCurrentGw,
+        playerGw,
         isLoading,
         setIsLoading,
       }}

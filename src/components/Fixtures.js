@@ -1,7 +1,7 @@
-import React from 'react';
-import { MdCardGiftcard } from 'react-icons/md';
+import React, { useContext } from 'react';
 import fixtures from '../context/data/fixtures';
 import teams from '../context/data/teams';
+import { PlayersContext } from '../context/context';
 // Dividing all fixtures into 26 gameweeks
 const schedule = [];
 for (let i = 0; i < fixtures.length; i++) {
@@ -60,8 +60,10 @@ const hHaifa = getTeamSchedule('הפועל חיפה');
 const hJerusalem = getTeamSchedule('הפועל ירושלים');
 const mbReina = getTeamSchedule('מכבי בני ריינה');
 const sNesTziyona = getTeamSchedule('סקציה נס ציונה');
-
+console.log(mHaifa);
+console.log(fixtures);
 const Fixtures = () => {
+  const { currentGw } = useContext(PlayersContext);
   return (
     <>
       <h2 className='fix-heading'>קושי משחקים</h2>
@@ -100,11 +102,11 @@ const Fixtures = () => {
           </div>
           <span>קשה</span>
         </div>
-        {fixtures.map((fixture) => {
+        {fixtures.map((fixture, i) => {
           if (fixture.cycleNum > 7) return;
-          return <div className='gw'>{fixture.cycleNum}</div>;
+          return <div className='gw'>{currentGw + i}</div>;
         })}
-        {mHaifa.map((game, i) => {
+        {mHaifa.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -128,7 +130,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {hBeerSheva.map((game, i) => {
+        {hBeerSheva.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -152,7 +154,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {mTelAviv.map((game, i) => {
+        {mTelAviv.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -176,7 +178,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {mNetanya.map((game, i) => {
+        {mNetanya.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -200,7 +202,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {hTelAviv.map((game, i) => {
+        {hTelAviv.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -224,7 +226,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {bSakhnin.map((game, i) => {
+        {bSakhnin.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -248,7 +250,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {hKiryatShemona.map((game, i) => {
+        {hKiryatShemona.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -272,7 +274,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {hHadera.map((game, i) => {
+        {hHadera.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -296,7 +298,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {msAshdod.map((game, i) => {
+        {msAshdod.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -320,7 +322,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {bJerusalem.map((game, i) => {
+        {bJerusalem.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -344,7 +346,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {hHaifa.map((game, i) => {
+        {hHaifa.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -368,7 +370,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {hJerusalem.map((game, i) => {
+        {hJerusalem.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -392,7 +394,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {mbReina.map((game, i) => {
+        {mbReina.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div
@@ -416,7 +418,7 @@ const Fixtures = () => {
             )
           );
         })}
-        {sNesTziyona.map((game, i) => {
+        {sNesTziyona.slice(currentGw - 1).map((game, i) => {
           return (
             i < 7 && (
               <div

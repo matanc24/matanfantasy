@@ -12,6 +12,7 @@ const Leaders = () => {
     teams,
     playerStat,
     fetchPlayers,
+    setPlayerStat,
     isLoading,
     setIsLoading,
   } = useContext(PlayersContext);

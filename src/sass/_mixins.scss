@@ -1,0 +1,4 @@
+@mixin dropShadow {
+  -webkit-filter: drop-shadow(0.2rem 0.2rem 0.2rem rgb(135, 135, 135));
+  filter: drop-shadow(0.3rem 0.3rem 0.3rem rgb(135, 135, 135));
+}
