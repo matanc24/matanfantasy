@@ -22,7 +22,7 @@ export default [
     teamStrength: 5,
 
     teamImg: 'https://i.ibb.co/Rcv5J8Y/41.png',
-    colors: ['#20458d', '#fdee01'],
+    colors: ['#20458d', '#dfc91b'],
   },
   {
     teamName: 'מכבי נתניה',
@@ -30,7 +30,7 @@ export default [
     val: 39,
     teamStrength: 3,
     teamImg: 'https://i.ibb.co/9Zp9mDj/39.png',
-    colors: ['#dfc91b', 'black'],
+    colors: ['#CCCC00', 'black'],
   },
   {
     teamName: 'הפועל תל אביב',
@@ -78,7 +78,7 @@ export default [
     val: 40,
     teamStrength: 2,
     teamImg: 'https://i.ibb.co/n066Z7Q/40.png',
-    colors: ['#dfc91b', 'black'],
+    colors: ['#CCCC00', 'black'],
   },
   {
     teamName: 'הפועל חיפה',
@@ -92,7 +92,7 @@ export default [
     teamName: 'הפועל ירושלים',
     teamAbr: 'HJE',
     val: 1271,
-    teamStrength: 2,
+    teamStrength: 3,
     teamImg: 'https://i.ibb.co/KFdXdCs/1271.png',
     colors: ['#da2333', 'black'],
   },

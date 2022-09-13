@@ -34,25 +34,28 @@ const PlayersProvider = ({ children }) => {
       setLeaders(topPlayers);
     }
     if (type === 'games') {
-      setCurrentGw(data.cycleNum);
+      setCurrentGw(data.cycleNum - 1);
     }
     if (type === 'rankingtable') {
       setIsLoading(false);
       setRankings(data.ranks);
     }
     if (type === 'getplayerstat&id=') {
-      console.log('check');
       setIsLoading(false);
       setPlayerStat({ id, ...data });
     }
     if (type.length > 20) {
+      console.log(data);
       setPlayerGw(data);
     }
   };
   const handleChange = (e) => {
-    const value = e.target.value;
-    console.log(value, playerStat.id);
-    fetchPlayers(`getplayerstat&id=${playerStat.id}&roundNum=`, value);
+    const optValue = e.target.value;
+    console.log(optValue);
+    if (optValue == 0) {
+      return setPlayerGw([]);
+    }
+    fetchPlayers(`getplayerstat&id=${playerStat.id}&roundNum=`, optValue);
   };
   useEffect(() => {
     fetchPlayers('players');
@@ -73,6 +76,7 @@ const PlayersProvider = ({ children }) => {
         handleChange,
         currentGw,
         setCurrentGw,
+        setPlayerGw,
         playerGw,
         isLoading,
         setIsLoading,

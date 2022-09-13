@@ -1,14 +1,23 @@
 import React, { useContext } from 'react';
 import { PlayersContext } from '../context/context';
+import { TiWarning } from 'react-icons/ti';
 import Loading from './Loading';
 const PlayerCard = () => {
-  const { leaders, teams, playerStat, setPlayerStat, playerGw, handleChange } =
-    useContext(PlayersContext);
-  // console.log(playerStat);
-  // console.log(leaders);
-  // console.log(teams);
+  const {
+    leaders,
+    teams,
+    playerStat,
+    setPlayerStat,
+    playerGw,
+    setPlayerGw,
+    handleChange,
+    currentGw,
+  } = useContext(PlayersContext);
+
   const playerTotalGames = playerStat.opens + playerStat.subs_out;
-  console.log(playerGw);
+  const gwNumbersArr = new Array(currentGw);
+  gwNumbersArr.fill(0, 0, currentGw);
+
   return (
     <>
       <div class='card' id='card'>
@@ -35,6 +44,7 @@ const PlayerCard = () => {
                     href='#'
                     class='card__close'
                     onClick={() => {
+                      setPlayerGw([]);
                       setPlayerStat({});
                     }}
                   >
@@ -119,31 +129,31 @@ const PlayerCard = () => {
                         {(leader.pointsValue / playerTotalGames).toFixed(2)}
                       </span>
                     </div>
-                    <div className='head goals'>
+                    <div className='head'>
                       <h4>שערים</h4>
                       <span>
                         {(playerStat.goals / playerTotalGames).toFixed(2)}
                       </span>
                     </div>
-                    <div className='head assists'>
+                    <div className='head'>
                       <h4>בישולים</h4>
                       <span>
                         {(playerStat.assists / playerTotalGames).toFixed(2)}
                       </span>
                     </div>
-                    <div className='head y-cards'>
+                    <div className='head'>
                       <h4>צהובים</h4>
                       <span>
                         {(playerStat.yellows / playerTotalGames).toFixed(2)}
                       </span>
                     </div>
-                    <div className='head r-cards'>
+                    <div className='head'>
                       <h4>אדומים</h4>
                       <span>
                         {(playerStat.reds / playerTotalGames).toFixed(2)}
                       </span>
                     </div>
-                    <div className='head start'>
+                    <div className='head'>
                       <h4>הרכב</h4>
                       <span>
                         {Math.round(
@@ -152,7 +162,7 @@ const PlayerCard = () => {
                         %
                       </span>
                     </div>
-                    <div className='head sub-out'>
+                    <div className='head'>
                       <h4>הוחלף</h4>
                       <span>
                         {Math.round(
@@ -161,7 +171,7 @@ const PlayerCard = () => {
                         %
                       </span>
                     </div>
-                    <div className='head sub-in'>
+                    <div className='head'>
                       <h4>החליף</h4>
                       <span>
                         {Math.round(
@@ -172,19 +182,73 @@ const PlayerCard = () => {
                     </div>
                   </div>
                   <div className='card__stat gameWeek'>
-                    <h3>למחזור</h3>
-                    <select name='gw' className='gw' onChange={handleChange}>
-                      <option value='0'>0</option>
-                      <option value='1'>1</option>
-                      <option value='2'>2</option>
-                      <option value='3'>3</option>
-                      <option value='4'>4</option>
+                    <h3>מחזור</h3>
+                    <select
+                      name='gw'
+                      className='gwOptions'
+                      onChange={handleChange}
+                    >
+                      <option value='0'>בחר</option>
+                      {gwNumbersArr.map((item, i) => {
+                        return <option value={i + 1}>{i + 1}</option>;
+                      })}
                     </select>
-                    <div className='head points'>
-                      <h4>נקודות</h4>
+                    <div className='head opponent'>
+                      <h4>יריבה</h4>
+                      <span>{playerGw.otherTeam}</span>
+                    </div>
+                    {playerGw.roundNum === playerGw.maxRoundNum &&
+                    playerGw.roundNum > 0 ? (
+                      <div className='head played'>
+                        <h4>טרם שוחק</h4>
+                        <span>
+                          <TiWarning size={'2rem'} />
+                        </span>
+                      </div>
+                    ) : (
+                      ''
+                    )}
+                    <div className='head'>
+                      <h4>שערים</h4>
+                      <span>{playerGw.goals_r}</span>
+                    </div>
+                    <div className='head'>
+                      <h4>בישולים</h4>
+                      <span>{playerGw.assists_r}</span>
+                    </div>
+                    <div className='head'>
+                      <h4>הרכב</h4>
                       <span>
-                        {(playerGw. / playerTotalGames).toFixed(2)}
+                        {playerGw.opens_r === 1
+                          ? 'כן'
+                          : playerGw.opens_r === 0
+                          ? 'לא'
+                          : ''}
                       </span>
+                    </div>
+                    <div className='head'>
+                      <h4>צהוב</h4>
+                      <span>
+                        {playerGw.yellows_r === 1
+                          ? 'כן'
+                          : playerGw.yellows_r === 0
+                          ? 'לא'
+                          : ''}
+                      </span>
+                    </div>
+                    <div className='head'>
+                      <h4>אדום</h4>
+                      <span>
+                        {playerGw.reds_r === 1
+                          ? 'כן'
+                          : playerGw.reds_r === 0
+                          ? 'לא'
+                          : ''}
+                      </span>
+                    </div>
+                    <div className='head'>
+                      <h4>נבחר ע"י</h4>
+                      <span>{playerGw.most_popular}</span>
                     </div>
                   </div>
                 </div>
