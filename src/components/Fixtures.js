@@ -119,11 +119,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '2',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -144,11 +140,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '3',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -169,11 +161,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '4',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -194,11 +182,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '5',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -219,11 +203,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '6',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -244,11 +224,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '7',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -269,11 +245,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '8',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -294,11 +266,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '9',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -319,11 +287,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '10',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -344,11 +308,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '11',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -369,11 +329,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '12',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -394,11 +350,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '13',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -419,11 +371,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '14',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >
@@ -444,11 +392,7 @@ const Fixtures = () => {
                   backgroundColor: `var(--color-dif-${game.strength})`,
                   gridRow: '15',
                   gridColumn: `${3 + i}`,
-                  color: `${
-                    game.strength === 1 || game.strength === 3
-                      ? 'black'
-                      : 'white'
-                  }`,
+                  color: `${game.strength === 3 ? 'black' : 'white'}`,
                 }}
                 key={i}
               >

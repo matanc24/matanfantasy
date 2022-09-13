@@ -269,9 +269,6 @@ body {
 .content .fix-container .dif-container .one {
   background-color: var(--color-dif-1);
 }
-.content .fix-container .dif-container .one span {
-  color: black;
-}
 .content .fix-container .dif-container .two {
   background-color: var(--color-dif-2);
 }
