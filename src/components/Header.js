@@ -29,7 +29,6 @@ const Header = () => {
           className='img three'
         />
       </div>
-      {/* <div class='hr'></div> */}
     </div>
   );
 };
