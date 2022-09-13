@@ -21,14 +21,14 @@ const PlayerCard = () => {
   return (
     <>
       <div className='card' id='card'>
-        {leaders.map((leader) => {
+        {leaders.map((leader, i) => {
           const indexTeam = teams.findIndex(
             (team) => team.val === leader.teamNum
           );
 
           if (leader.id === playerStat.id) {
             return (
-              <>
+              <React.Fragment key={i}>
                 <div
                   className='card__content'
                   style={{
@@ -190,7 +190,11 @@ const PlayerCard = () => {
                     >
                       <option value='0'>בחר</option>
                       {gwNumbersArr.map((item, i) => {
-                        return <option value={i + 1}>{i + 1}</option>;
+                        return (
+                          <option value={i + 1} key={i}>
+                            {i + 1}
+                          </option>
+                        );
                       })}
                     </select>
                     <div className='head opponent'>
@@ -252,7 +256,7 @@ const PlayerCard = () => {
                     </div>
                   </div>
                 </div>
-              </>
+              </React.Fragment>
             );
           }
         })}

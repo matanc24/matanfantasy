@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import uniqid from 'uniqid';
+
 import fixtures from '../context/data/fixtures';
 import teams from '../context/data/teams';
 import { PlayersContext } from '../context/context';
@@ -62,7 +62,6 @@ const hJerusalem = getTeamSchedule('הפועל ירושלים');
 const mbReina = getTeamSchedule('מכבי בני ריינה');
 const sNesTziyona = getTeamSchedule('סקציה נס ציונה');
 
-console.log(uniqid());
 const Fixtures = () => {
   const { currentGw } = useContext(PlayersContext);
   return (
@@ -106,7 +105,7 @@ const Fixtures = () => {
         {fixtures.map((fixture, i) => {
           if (fixture.cycleNum > 7) return;
           return (
-            <div className='gw' key={uniqid()}>
+            <div className='gw' key={i}>
               {currentGw + i}
             </div>
           );

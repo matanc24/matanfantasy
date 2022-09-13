@@ -45,13 +45,12 @@ const PlayersProvider = ({ children }) => {
       setPlayerStat({ id, ...data });
     }
     if (type.length > 20) {
-      console.log(data);
       setPlayerGw(data);
     }
   };
   const handleChange = (e) => {
     const optValue = e.target.value;
-    console.log(optValue);
+
     if (optValue == 0) {
       return setPlayerGw([]);
     }
