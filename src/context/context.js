@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import teams from './data/teams';
-const API_ENDPOINT = `https://tom.tovel.co.il/mtn.php?key=${process.env.REACT_APP_FANTASY_API_KEY}&type=`;
+const API_ENDPOINT = `https://tom.tovel.co.il/mtn.php?key=123987&type=`;
 const PlayersContext = createContext();
 
 const PlayersProvider = ({ children }) => {
