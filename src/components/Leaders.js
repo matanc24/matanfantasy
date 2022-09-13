@@ -36,9 +36,9 @@ const Leaders = () => {
         <div className='title'>שווי</div>
         <div className='title'>נק'</div>
         <div className='title'>זמינות</div>
-        {leaders.map((player) => {
+        {leaders.map((player, i) => {
           return (
-            <>
+            <React.Fragment key={i}>
               <div className='details'>
                 <img
                   src={player.shirtPicture}
@@ -89,7 +89,7 @@ const Leaders = () => {
               </div>
               <div className='details__stat'></div>
               <div className='details__underline-small'></div>
-            </>
+            </React.Fragment>
           );
         })}
       </div>

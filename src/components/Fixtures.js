@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import uniqid from 'uniqid';
 import fixtures from '../context/data/fixtures';
 import teams from '../context/data/teams';
 import { PlayersContext } from '../context/context';
@@ -60,17 +61,17 @@ const hHaifa = getTeamSchedule('הפועל חיפה');
 const hJerusalem = getTeamSchedule('הפועל ירושלים');
 const mbReina = getTeamSchedule('מכבי בני ריינה');
 const sNesTziyona = getTeamSchedule('סקציה נס ציונה');
-console.log(mHaifa);
-console.log(fixtures);
+
+console.log(uniqid());
 const Fixtures = () => {
   const { currentGw } = useContext(PlayersContext);
   return (
-    <>
+    <React.Fragment>
       <h2 className='fix-heading'>קושי משחקים</h2>
       <div className='fix-container'>
-        {teams.map((team) => {
+        {teams.map((team, i) => {
           return (
-            <>
+            <React.Fragment key={i}>
               <div className='logo'>
                 <img
                   src={team.teamImg}
@@ -79,7 +80,7 @@ const Fixtures = () => {
                 />
               </div>
               <div className='team'>{team.teamName}</div>
-            </>
+            </React.Fragment>
           );
         })}
 
@@ -104,7 +105,11 @@ const Fixtures = () => {
         </div>
         {fixtures.map((fixture, i) => {
           if (fixture.cycleNum > 7) return;
-          return <div className='gw'>{currentGw + i}</div>;
+          return (
+            <div className='gw' key={uniqid()}>
+              {currentGw + i}
+            </div>
+          );
         })}
         {mHaifa.slice(currentGw - 1).map((game, i) => {
           return (
@@ -121,6 +126,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -145,6 +151,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -169,6 +176,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -193,6 +201,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -217,6 +226,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -241,6 +251,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -265,6 +276,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -289,6 +301,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -313,6 +326,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -337,6 +351,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -361,6 +376,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -385,6 +401,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -409,6 +426,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -433,6 +451,7 @@ const Fixtures = () => {
                       : 'white'
                   }`,
                 }}
+                key={i}
               >
                 <div className='opp-img'>
                   <img src={game.logo} alt={game.name} title={game.name} />
@@ -443,7 +462,7 @@ const Fixtures = () => {
           );
         })}
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

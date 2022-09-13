@@ -20,7 +20,7 @@ const PlayerCard = () => {
 
   return (
     <>
-      <div class='card' id='card'>
+      <div className='card' id='card'>
         {leaders.map((leader) => {
           const indexTeam = teams.findIndex(
             (team) => team.val === leader.teamNum
@@ -30,7 +30,7 @@ const PlayerCard = () => {
             return (
               <>
                 <div
-                  class='card__content'
+                  className='card__content'
                   style={{
                     backgroundColor: `${teams[indexTeam].colors[0]}`,
                   }}
@@ -42,7 +42,7 @@ const PlayerCard = () => {
                   />
                   <a
                     href='#'
-                    class='card__close'
+                    className='card__close'
                     onClick={() => {
                       setPlayerGw([]);
                       setPlayerStat({});
@@ -56,7 +56,7 @@ const PlayerCard = () => {
                   <div className='card__background shirt'>
                     <img src={leader.shirtPicture} alt={leader.teamName} />
                   </div>
-                  <div class='card__title'>
+                  <div className='card__title'>
                     <h2 style={{ color: `${teams[indexTeam].colors[1]}` }}>
                       {leader.id === playerStat.id ? leader.name : ''}
                     </h2>
@@ -202,7 +202,7 @@ const PlayerCard = () => {
                       <div className='head played'>
                         <h4>טרם שוחק</h4>
                         <span>
-                          <TiWarning size={'2rem'} />
+                          <TiWarning size={'3rem'} />
                         </span>
                       </div>
                     ) : (

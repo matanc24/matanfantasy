@@ -37,9 +37,9 @@ const LeagueTable = () => {
         <div className='title'>תיקו</div>
         <div className='title'>יחס</div>
         <div className='title'>נק'</div>
-        {rankings.map((team) => {
+        {rankings.map((team, i) => {
           return (
-            <>
+            <React.Fragment key={i}>
               <div className='details'>
                 <img
                   src={team.image}
@@ -55,7 +55,7 @@ const LeagueTable = () => {
               <div className='details__stat'>{team.ratio}</div>
               <div className='details__stat'>{team.points}</div>
               <div className='details__underline-small'></div>
-            </>
+            </React.Fragment>
           );
         })}
       </div>
