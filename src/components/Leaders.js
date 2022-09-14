@@ -32,14 +32,20 @@ const Leaders = () => {
       <h2 className='heading players'>שחקנים מובילים</h2>
       <div className='stat-container pts-leaders'>
         <div className='underline'></div>
-        <div className='title'>שחקן</div>
+        <div className='title info'>שחקן</div>
         <div className='title'>שווי</div>
-        <div className='title'>נק'</div>
         <div className='title'>זמינות</div>
+        <div className='title pts'>נק'</div>
         {leaders.map((player, i) => {
           return (
             <React.Fragment key={i}>
-              <div className='details'>
+              <a
+                className='details'
+                href='#card'
+                onClick={() => {
+                  fetchPlayers('getplayerstat&id=', player.id);
+                }}
+              >
                 <img
                   src={player.shirtPicture}
                   alt={player.teamName}
@@ -47,13 +53,9 @@ const Leaders = () => {
                   className='details__shirt'
                 />
                 <div className='details__name'>{player.name}</div>
-                <a href='#card'>
-                  <HiInformationCircle
-                    onClick={() => {
-                      fetchPlayers('getplayerstat&id=', player.id);
-                    }}
-                  />
-                </a>
+
+                <HiInformationCircle className='info-logo' />
+
                 <div className='details__info-box'>
                   <img
                     src={player.teamFlagPic}
@@ -73,11 +75,10 @@ const Leaders = () => {
                       : ''}
                   </div>
                 </div>
-              </div>
+              </a>
               <div className='details__stat'>
                 {player.marketValue / 1000000}M
               </div>
-              <div className='details__stat'>{player.pointsValue}</div>
               <div className='details__stat'>
                 {player.isSuspended
                   ? 'מושעה'
@@ -87,6 +88,7 @@ const Leaders = () => {
                   ? 'חסר'
                   : 'זמין'}
               </div>
+              <div className='details__stat pts'>{player.pointsValue}</div>
               <div className='details__stat'></div>
               <div className='details__underline-small'></div>
             </React.Fragment>

@@ -31,12 +31,12 @@ const LeagueTable = () => {
       </h2>
       <div className='stat-container league-table'>
         <div className='underline'></div>
-        <div className='title'>קבוצה</div>
+        <div className='title info'>קבוצה</div>
         <div className='title'>נצ'</div>
         <div className='title'>הפ'</div>
         <div className='title'>תיקו</div>
         <div className='title'>יחס</div>
-        <div className='title'>נק'</div>
+        <div className='title pts'>נק'</div>
         {rankings.map((team, i) => {
           return (
             <React.Fragment key={i}>
@@ -53,7 +53,7 @@ const LeagueTable = () => {
               <div className='details__stat'>{team.loss}</div>
               <div className='details__stat'>{team.ties}</div>
               <div className='details__stat'>{team.ratio}</div>
-              <div className='details__stat'>{team.points}</div>
+              <div className='details__stat pts'>{team.points}</div>
               <div className='details__underline-small'></div>
             </React.Fragment>
           );
