@@ -28,7 +28,7 @@ const PlayersProvider = ({ children }) => {
         .sort((a, b) => {
           return b.pointsValue - a.pointsValue;
         })
-        .slice(0, 10);
+        .slice(0, 14);
       setIsLoading(false);
       setPlayers(JSON.parse(data));
       setLeaders(topPlayers);

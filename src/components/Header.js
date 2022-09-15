@@ -5,7 +5,10 @@ const Header = () => {
   return (
     <div className='header'>
       <h1 className='heading-main'>פנטזי</h1>
-      <a href='https://dreamteam.sport5.co.il/?openExternal=true'>
+      <a
+        href='https://dreamteam.sport5.co.il/?openExternal=true'
+        target='_blank'
+      >
         <img
           src='https://dreamteam.sport5.co.il/Images/logo.png'
           alt='sport5'

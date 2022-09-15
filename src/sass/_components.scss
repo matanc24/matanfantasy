@@ -3,6 +3,13 @@
   width: 100%;
   grid-template-columns: 13rem repeat(2, 1fr) 13rem;
   margin-top: 4rem;
+  @media only screen and (max-width: $bp-medium) {
+    justify-content: center;
+    grid-template-columns: repeat(2, min-content);
+    column-gap: 4rem;
+    grid-column: 1 / span 2;
+    grid-row: 4;
+  }
   .stat-container {
     display: grid;
     justify-self: center;
@@ -11,6 +18,10 @@
     background-color: white;
     padding: 1.5rem;
     width: 95%;
+    @media only screen and (max-width: $bp-medium) {
+      width: 100%;
+    }
+
     .details {
       grid-column: 1;
       width: 100%;
@@ -90,12 +101,19 @@
 
   .players {
     grid-column: 3;
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 2;
+    }
   }
 
   .pts-leaders {
     grid-column: 3;
     grid-template-columns: 25rem repeat(3, 1fr);
-    grid-template-rows: min-content min-content repeat(7, 1fr min-content);
+    grid-template-rows: min-content min-content repeat(14, 1fr min-content);
+    width: 100%;
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 2;
+    }
 
     .details {
       &__shirt {
@@ -126,6 +144,9 @@
   .teams {
     grid-column: 2;
     grid-row: 1;
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1;
+    }
   }
 
   .league-table {
@@ -133,6 +154,10 @@
     grid-row: 2;
     grid-template-columns: 22rem repeat(5, 1fr);
     grid-template-rows: min-content min-content repeat(14, 1fr min-content);
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1;
+      grid-template-columns: 20rem repeat(3, min-content) 6rem min-content;
+    }
 
     .details {
       &__crest {
@@ -151,6 +176,9 @@
     margin-top: 2rem;
     grid-column: 2 / span 2;
     justify-self: center;
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / span 2;
+    }
   }
   .fix-container {
     grid-column: 2 / span 2;
@@ -159,6 +187,9 @@
     column-gap: 1rem;
     grid-template-columns: min-content 15rem repeat(7, 1fr);
     grid-template-rows: repeat(16, min-content) 1fr;
+    @media only screen and (max-width: $bp-medium) {
+      grid-column: 1 / span 2;
+    }
 
     .fix-desc {
       grid-row: 1;

@@ -89,7 +89,6 @@ const Leaders = () => {
                   : 'זמין'}
               </div>
               <div className='details__stat pts'>{player.pointsValue}</div>
-              <div className='details__stat'></div>
               <div className='details__underline-small'></div>
             </React.Fragment>
           );
