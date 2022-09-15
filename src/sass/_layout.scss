@@ -10,10 +10,6 @@
   min-width: 125rem;
 
   @media only screen and (max-width: $bp-medium) {
-    justify-self: center;
-    align-self: center;
-    grid-template-columns: 1fr;
-    max-width: 140rem;
     margin: auto;
   }
   h1 {

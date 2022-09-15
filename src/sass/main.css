@@ -64,10 +64,6 @@ body {
 }
 @media only screen and (max-width: 62.5em) {
   .container {
-    justify-self: center;
-    align-self: center;
-    grid-template-columns: 1fr;
-    max-width: 140rem;
     margin: auto;
   }
 }
@@ -88,17 +84,6 @@ body {
   grid-template-columns: 13rem repeat(2, 1fr) 13rem;
   margin-top: 4rem;
 }
-@media only screen and (max-width: 62.5em) {
-  .content {
-    justify-content: center;
-    grid-template-columns: repeat(2, -webkit-min-content);
-    grid-template-columns: repeat(2, min-content);
-    -moz-column-gap: 4rem;
-         column-gap: 4rem;
-    grid-column: 1/span 2;
-    grid-row: 4;
-  }
-}
 .content .stat-container {
   display: grid;
   justify-self: center;
@@ -107,11 +92,6 @@ body {
   background-color: white;
   padding: 1.5rem;
   width: 95%;
-}
-@media only screen and (max-width: 62.5em) {
-  .content .stat-container {
-    width: 100%;
-  }
 }
 .content .stat-container .details {
   grid-column: 1;
@@ -188,22 +168,11 @@ body {
 .content .players {
   grid-column: 3;
 }
-@media only screen and (max-width: 62.5em) {
-  .content .players {
-    grid-column: 2;
-  }
-}
 .content .pts-leaders {
   grid-column: 3;
   grid-template-columns: 25rem repeat(3, 1fr);
   grid-template-rows: -webkit-min-content -webkit-min-content repeat(14, 1fr -webkit-min-content);
   grid-template-rows: min-content min-content repeat(14, 1fr min-content);
-  width: 100%;
-}
-@media only screen and (max-width: 62.5em) {
-  .content .pts-leaders {
-    grid-column: 2;
-  }
 }
 .content .pts-leaders .details__shirt {
   grid-row: 1/span 2;
@@ -226,24 +195,12 @@ body {
   grid-column: 2;
   grid-row: 1;
 }
-@media only screen and (max-width: 62.5em) {
-  .content .teams {
-    grid-column: 1;
-  }
-}
 .content .league-table {
   grid-column: 2;
   grid-row: 2;
   grid-template-columns: 22rem repeat(5, 1fr);
   grid-template-rows: -webkit-min-content -webkit-min-content repeat(14, 1fr -webkit-min-content);
   grid-template-rows: min-content min-content repeat(14, 1fr min-content);
-}
-@media only screen and (max-width: 62.5em) {
-  .content .league-table {
-    grid-column: 1;
-    grid-template-columns: 20rem repeat(3, -webkit-min-content) 6rem -webkit-min-content;
-    grid-template-columns: 20rem repeat(3, min-content) 6rem min-content;
-  }
 }
 .content .league-table .details__crest {
   height: 3rem;
@@ -256,11 +213,6 @@ body {
   grid-column: 2/span 2;
   justify-self: center;
 }
-@media only screen and (max-width: 62.5em) {
-  .content .fix-heading {
-    grid-column: 1/span 2;
-  }
-}
 .content .fix-container {
   grid-column: 2/span 2;
   display: grid;
@@ -271,11 +223,6 @@ body {
   grid-template-columns: min-content 15rem repeat(7, 1fr);
   grid-template-rows: repeat(16, -webkit-min-content) 1fr;
   grid-template-rows: repeat(16, min-content) 1fr;
-}
-@media only screen and (max-width: 62.5em) {
-  .content .fix-container {
-    grid-column: 1/span 2;
-  }
 }
 .content .fix-container .fix-desc {
   grid-row: 1;
