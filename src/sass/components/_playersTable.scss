@@ -1,0 +1,40 @@
+.players {
+  grid-column: 3;
+  @media only screen and (max-width: $bp-smallest) {
+    grid-column: 2;
+  }
+}
+
+.pts-leaders {
+  grid-column: 3;
+  grid-template-columns: 25rem repeat(3, 1fr);
+  grid-template-rows: min-content min-content repeat(14, 1fr min-content);
+  @media only screen and (max-width: $bp-smallest) {
+    width: 100%;
+    grid-template-columns: 14rem repeat(3, 1fr);
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    grid-column: 2;
+  }
+
+  .details {
+    &__shirt {
+      grid-row: 1 / span 2;
+      height: 5rem;
+      justify-self: center;
+      align-self: center;
+    }
+    &__crest {
+      height: 2.5rem;
+    }
+    &__info-box {
+      grid-row: 2;
+      grid-column: 2;
+      display: flex;
+    }
+
+    &__underline-small {
+      grid-column: 1 / span 5;
+    }
+  }
+}

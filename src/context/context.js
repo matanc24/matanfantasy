@@ -34,7 +34,7 @@ const PlayersProvider = ({ children }) => {
       setLeaders(topPlayers);
     }
     if (type === 'games') {
-      setCurrentGw(data.cycleNum - 1);
+      setCurrentGw(data.cycleNum);
     }
     if (type === 'rankingtable') {
       setIsLoading(false);

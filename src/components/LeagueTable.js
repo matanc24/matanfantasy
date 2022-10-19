@@ -11,7 +11,7 @@ const LeagueTable = () => {
     fetchPlayers,
     isLoading,
   } = useContext(PlayersContext);
-  // console.log(rankings);
+
   if (isLoading && rankings.length === 0) {
     return (
       <>

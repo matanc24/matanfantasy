@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-
+import React, { useContext, useEffect } from 'react';
+import MediaQuery, { useMediaQuery } from 'react-responsive';
 import fixtures from '../context/data/fixtures';
 import teams from '../context/data/teams';
 import { PlayersContext } from '../context/context';
@@ -63,26 +63,70 @@ const mbReina = getTeamSchedule('מכבי בני ריינה');
 const sNesTziyona = getTeamSchedule('סקציה נס ציונה');
 
 const Fixtures = () => {
-  const { currentGw } = useContext(PlayersContext);
+  const { currentGw, rankings } = useContext(PlayersContext);
+  const isMobile = useMediaQuery({ query: '(max-width: 600px)' });
+  const showTeamSchedule = function (team, name) {
+    if (rankings.length === 0) return;
+    const row = rankings.find((ranking) => ranking.name === name).position + 1;
+    return team.slice(currentGw - 1).map((game, i) => {
+      if (isMobile) {
+        return (
+          i < 5 && (
+            <div
+              className='fixDifficulty'
+              style={{
+                backgroundColor: `var(--color-dif-${game.strength})`,
+                gridRow: `${row}`,
+                gridColumn: `${3 + i}`,
+                color: `${game.strength === 3 ? 'black' : 'white'}`,
+              }}
+              key={i}
+            >
+              <div className='opp-img'>
+                <img src={game.logo} alt={game.name} title={game.name} />
+                {game.location}
+              </div>
+            </div>
+          )
+        );
+      } else {
+        return (
+          i < 7 && (
+            <div
+              className='fixDifficulty'
+              style={{
+                backgroundColor: `var(--color-dif-${game.strength})`,
+                gridRow: `${row}`,
+                gridColumn: `${3 + i}`,
+                color: `${game.strength === 3 ? 'black' : 'white'}`,
+              }}
+              key={i}
+            >
+              <div className='opp-img'>
+                <img src={game.logo} alt={game.name} title={game.name} />
+                {game.location}
+              </div>
+            </div>
+          )
+        );
+      }
+    });
+  };
+
   return (
     <React.Fragment>
       <h2 className='fix-heading'>קושי משחקים</h2>
       <div className='fix-container'>
-        {teams.map((team, i) => {
+        {rankings.map((team, i) => {
           return (
             <React.Fragment key={i}>
               <div className='logo'>
-                <img
-                  src={team.teamImg}
-                  alt={team.teamName}
-                  title={team.teamName}
-                />
+                <img src={team.image} alt={team.name} title={team.name} />
               </div>
-              <div className='team'>{team.teamName}</div>
+              <div className='team'>{team.name}</div>
             </React.Fragment>
           );
         })}
-
         <div className='gw dif-container'>
           <span>קל</span>
           <div className='dif one'>
@@ -102,308 +146,38 @@ const Fixtures = () => {
           </div>
           <span>קשה</span>
         </div>
-        {fixtures.map((fixture, i) => {
-          if (fixture.cycleNum > 7) return;
-          return (
-            <div className='gw' key={i}>
-              {currentGw + i}
-            </div>
-          );
-        })}
-        {mHaifa.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '2',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
+        {isMobile
+          ? fixtures.map((fixture, i) => {
+              if (fixture.cycleNum > 5) return;
+              return (
+                <div className='gw' key={i}>
+                  {currentGw + i}
                 </div>
-              </div>
-            )
-          );
-        })}
-        {hBeerSheva.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '3',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
+              );
+            })
+          : fixtures.map((fixture, i) => {
+              if (fixture.cycleNum > 7) return;
+              return (
+                <div className='gw' key={i}>
+                  {currentGw + i}
                 </div>
-              </div>
-            )
-          );
-        })}
-        {mTelAviv.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '4',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {mNetanya.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '5',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {hTelAviv.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '6',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {bSakhnin.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '7',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {hKiryatShemona.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '8',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {hHadera.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '9',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {msAshdod.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '10',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {bJerusalem.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '11',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {hHaifa.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '12',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {hJerusalem.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '13',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {mbReina.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '14',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
-        {sNesTziyona.slice(currentGw - 1).map((game, i) => {
-          return (
-            i < 7 && (
-              <div
-                className='fixDifficulty'
-                style={{
-                  backgroundColor: `var(--color-dif-${game.strength})`,
-                  gridRow: '15',
-                  gridColumn: `${3 + i}`,
-                  color: `${game.strength === 3 ? 'black' : 'white'}`,
-                }}
-                key={i}
-              >
-                <div className='opp-img'>
-                  <img src={game.logo} alt={game.name} title={game.name} />
-                  {game.location}
-                </div>
-              </div>
-            )
-          );
-        })}
+              );
+            })}
+
+        {showTeamSchedule(mHaifa, 'מכבי חיפה')}
+        {showTeamSchedule(mTelAviv, 'מכבי תל אביב')}
+        {showTeamSchedule(hBeerSheva, 'הפועל באר שבע')}
+        {showTeamSchedule(mbReina, 'מכבי בני ריינה')}
+        {showTeamSchedule(mNetanya, 'מכבי נתניה')}
+        {showTeamSchedule(hJerusalem, 'הפועל ירושלים')}
+        {showTeamSchedule(hKiryatShemona, 'הפועל קרית שמונה')}
+        {showTeamSchedule(hHaifa, 'הפועל חיפה')}
+        {showTeamSchedule(hHadera, 'הפועל חדרה')}
+        {showTeamSchedule(hTelAviv, 'הפועל תל אביב')}
+        {showTeamSchedule(bJerusalem, 'בית``ר ירושלים')}
+        {showTeamSchedule(sNesTziyona, 'סקציה נס ציונה')}
+        {showTeamSchedule(bSakhnin, 'בני סכנין')}
+        {showTeamSchedule(msAshdod, 'מ.ס. אשדוד')}
       </div>
     </React.Fragment>
   );

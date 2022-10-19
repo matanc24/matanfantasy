@@ -1,7 +1,10 @@
 @import 'base';
 @import 'mixins';
 @import 'layout';
-@import 'components';
-@import 'header';
-@import 'loading';
-@import 'card';
+@import './components/header';
+@import './components/loading';
+@import './components/card';
+@import './components/tables';
+@import './components/playersTable';
+@import './components/leagueTable';
+@import './components/fixtures';
