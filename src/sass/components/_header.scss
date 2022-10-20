@@ -41,6 +41,7 @@
       margin: 0;
       grid-row: 1;
       grid-column: 1;
+      justify-self: center;
     }
     .heading-main {
       grid-row: 1;
@@ -60,8 +61,6 @@
     }
     .picture {
       grid-row: 2;
-      img {
-      }
     }
   }
 }
