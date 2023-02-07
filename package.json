@@ -18,7 +18,7 @@
     "styled-components": "^5.3.5",
     "uniqid": "^5.4.0",
     "web-vitals": "^2.1.4",
-    "loader-utils": ">=3.2.1"
+    "loader-utils": ">=2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
