@@ -395,6 +395,11 @@ body {
   transform: translateY(10%);
 }
 
+@media only screen and (max-height: 725px) {
+  .card__content {
+    height: 82.5%;
+  }
+}
 @media only screen and (max-width: 53.75em) {
   .card__content {
     width: 100%;

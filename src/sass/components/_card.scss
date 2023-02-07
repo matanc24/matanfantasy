@@ -193,6 +193,13 @@ $color-black: #000;
     }
   }
 }
+@media only screen and (max-height: 725px) {
+  .card {
+    &__content {
+      height: 82.5%;
+    }
+  }
+}
 @media only screen and (max-width: $bp-small) {
   .card {
     &__content {
