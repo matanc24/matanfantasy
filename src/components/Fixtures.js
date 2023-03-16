@@ -24,7 +24,10 @@ const getTeamSchedule = (teamName) => {
       )
       // Figuring whether teamName is host or hostess
       .map((game) => {
-        // console.log(game);
+        if (!game) {
+          location.push('לא משחקת');
+          return;
+        }
         if (game.hostTeam !== teamName) {
           location.push('(ח)');
           return game.hostTeam;
@@ -37,6 +40,13 @@ const getTeamSchedule = (teamName) => {
       .map((opponent) => teams.find((team) => team.teamName === opponent))
       // Returning an object for every team fixture
       .map((game, i) => {
+        if (!game)
+          return {
+            strength: 3,
+            logo: '',
+            name: '',
+            location: location[i],
+          };
         return {
           strength: game.teamStrength,
           logo: game.teamImg,
@@ -51,14 +61,14 @@ const mHaifa = getTeamSchedule('מכבי חיפה');
 const hBeerSheva = getTeamSchedule('הפועל באר שבע');
 const mTelAviv = getTeamSchedule('מכבי תל אביב');
 const mNetanya = getTeamSchedule('מכבי נתניה');
+const hJerusalem = getTeamSchedule('הפועל ירושלים');
+const msAshdod = getTeamSchedule('מ.ס. אשדוד');
 const hTelAviv = getTeamSchedule('הפועל תל אביב');
 const bSakhnin = getTeamSchedule('בני סכנין');
 const hKiryatShemona = getTeamSchedule('הפועל קרית שמונה');
 const hHadera = getTeamSchedule('הפועל חדרה');
-const msAshdod = getTeamSchedule('מ.ס. אשדוד');
 const bJerusalem = getTeamSchedule('בית``ר ירושלים');
 const hHaifa = getTeamSchedule('הפועל חיפה');
-const hJerusalem = getTeamSchedule('הפועל ירושלים');
 const mbReina = getTeamSchedule('מכבי בני ריינה');
 const sNesTziyona = getTeamSchedule('סקציה נס ציונה');
 
@@ -163,21 +173,20 @@ const Fixtures = () => {
                 </div>
               );
             })}
-
         {showTeamSchedule(mHaifa, 'מכבי חיפה')}
         {showTeamSchedule(mTelAviv, 'מכבי תל אביב')}
         {showTeamSchedule(hBeerSheva, 'הפועל באר שבע')}
-        {showTeamSchedule(mbReina, 'מכבי בני ריינה')}
         {showTeamSchedule(mNetanya, 'מכבי נתניה')}
         {showTeamSchedule(hJerusalem, 'הפועל ירושלים')}
-        {showTeamSchedule(hKiryatShemona, 'הפועל קרית שמונה')}
+        {showTeamSchedule(msAshdod, 'מ.ס. אשדוד')}
+        {showTeamSchedule(bJerusalem, 'בית``ר ירושלים')}
         {showTeamSchedule(hHaifa, 'הפועל חיפה')}
+        {showTeamSchedule(bSakhnin, 'בני סכנין')}
         {showTeamSchedule(hHadera, 'הפועל חדרה')}
         {showTeamSchedule(hTelAviv, 'הפועל תל אביב')}
-        {showTeamSchedule(bJerusalem, 'בית``ר ירושלים')}
+        {showTeamSchedule(mbReina, 'מכבי בני ריינה')}
+        {showTeamSchedule(hKiryatShemona, 'הפועל קרית שמונה')}
         {showTeamSchedule(sNesTziyona, 'סקציה נס ציונה')}
-        {showTeamSchedule(bSakhnin, 'בני סכנין')}
-        {showTeamSchedule(msAshdod, 'מ.ס. אשדוד')}
       </div>
     </React.Fragment>
   );
