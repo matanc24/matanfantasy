@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import MediaQuery, { useMediaQuery } from 'react-responsive';
+import React, { useContext } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import fixtures from '../context/data/fixtures';
 import teams from '../context/data/teams';
 import { PlayersContext } from '../context/context';
