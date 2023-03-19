@@ -42,7 +42,7 @@ const getTeamSchedule = (teamName) => {
       .map((game, i) => {
         if (!game)
           return {
-            strength: 3,
+            strength: 0,
             logo: '',
             name: '',
             location: location[i],
@@ -93,7 +93,12 @@ const Fixtures = () => {
               key={i}
             >
               <div className='opp-img'>
-                <img src={game.logo} alt={game.name} title={game.name} />
+                {game.logo === '' ? (
+                  '* '
+                ) : (
+                  <img src={game.logo} alt={game.name} title={game.name} />
+                )}
+
                 {game.location}
               </div>
             </div>
@@ -113,7 +118,11 @@ const Fixtures = () => {
               key={i}
             >
               <div className='opp-img'>
-                <img src={game.logo} alt={game.name} title={game.name} />
+                {game.logo === '' ? (
+                  '* '
+                ) : (
+                  <img src={game.logo} alt={game.name} title={game.name} />
+                )}
                 {game.location}
               </div>
             </div>
