@@ -22,7 +22,6 @@ const PlayersProvider = ({ children }) => {
       throw new Error(`HTTP error! status: ${res.status}`);
     }
     const data = await res.json();
-
     if (type === 'players') {
       const topPlayers = JSON.parse(data)
         .sort((a, b) => {
